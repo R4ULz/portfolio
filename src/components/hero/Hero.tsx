@@ -45,7 +45,7 @@ export default function Hero() {
           transition={{ delay: 0, duration: 0.5, ease: "easeOut" }}
         >Desenvolvedor Javascript</motion.p>
         <motion.p 
-          className="text-5xl md:text-7xl flex justify-center text-white font-montserrat font-bold"
+          className="text-5xl lg:text-7xl flex justify-center text-white font-montserrat font-bold"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.5, ease: "easeOut" }}  
