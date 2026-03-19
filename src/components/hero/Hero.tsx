@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import {  motion, useMotionValue, useSpring } from "framer-motion";
 import { Github, Linkedin, Mail, MoveDown } from "lucide-react";
 import { useRef, useState } from "react";
 import ParticulasBackground from "./particulas";
@@ -21,7 +21,7 @@ export default function Hero() {
   }
 
   return (
-    <div ref={ref} id="hero-container" onMouseMove={handleMouseOver} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} className='relative min-h-screen w-full bg-indigo-950 flex flex-col md:flex-row items-center overflow-hidden justify-center px-10 py-10 md:px-35 gap-20'>
+    <div ref={ref} id="hero-container" onMouseMove={handleMouseOver} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} className='relative min-h-screen w-full bg-linear-to-r from-slate-950 to-indigo-950 flex flex-col md:flex-row items-center overflow-hidden justify-center px-10 py-10 md:px-35 gap-20'>
       <ParticulasBackground />
       <motion.div className="pointer-events-none absolute"
         style={{
@@ -61,17 +61,35 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.5, ease: "easeOut" }}
         >
-            <button className=" bg-white text-indigo-950 px-4 py-2 rounded-md mr-2 gap-1 flex items-center transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">Ver Projetos <MoveDown size={15} className="animate-bounce"/></button>
-            <button className="bg-transparent border border-white text-white px-4 py-2 rounded-md transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">Entrar em contato</button>
+            <motion.button 
+              className=" bg-white text-indigo-950 px-4 py-2 rounded-md mr-2 gap-1 flex items-center  cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{duration: 0.3, ease: "easeIn"}}
+              >
+                Ver Projetos <MoveDown size={15} className="animate-bounce"/>
+            </motion.button>
+            <motion.button 
+              className="bg-transparent border border-white text-white px-4 py-2 flex items-center gap-2 rounded-md cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{duration: 0.3, ease: "easeIn"}}
+            >
+              <Mail />Entrar em contato
+            </motion.button>
         </motion.div>
         <motion.div className="flex gap-5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
         >
-          <button className="text-zinc-400 hover:text-zinc-50"><Github /></button>
-          <button className="text-zinc-400 hover:text-zinc-50"><Linkedin /></button>
-          <button className="text-zinc-400 hover:text-zinc-50"><Mail /></button>
+          <a href="https://github.com/R4ULz" target="_blank" rel="noopener noreferrer">
+            <button className="text-zinc-400 hover:text-zinc-50 cursor-pointer"><Github /></button>
+          </a>
+          <a href="https://www.linkedin.com/in/raularaujo45/" target="_blank" rel="noopener noreferrer">
+            <button className="text-zinc-400 hover:text-zinc-50 cursor-pointer"><Linkedin /></button>
+          </a>
+          <a href="mailto:raul.zc45@gmail.com" target="_blank" rel="noopener noreferrer">
+            <button className="text-zinc-400 hover:text-zinc-50 cursor-pointer"><Mail /></button>
+          </a>
         </motion.div>
       </div>
       <motion.div className=" relative z-10 w-72 h-96 flex items-center justify-center group"
