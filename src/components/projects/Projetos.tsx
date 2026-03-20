@@ -1,6 +1,7 @@
 import { ExternalLink, Github } from "lucide-react";
 import { projetos, type Projeto } from "../../data/projetos";
 import { motion } from "framer-motion";
+import { ImageCarousel } from "./ImageCarousel";
 
 export default function Projetos() {
   return (
@@ -11,7 +12,7 @@ export default function Projetos() {
       <motion.h2 className="text-lg text-gray-600 text-center max-w-2xl" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y:0 }} viewport={{once: true}} transition={{ duration: 0.5, ease: "easeIn" }}>
         Confira alguns dos projetos que desenvolvi recentemente. Cada um representa um desafio único e uma oportunidade de aprendizado.
       </motion.h2>
-      <div className="grid md:grid-cols-2 w-full gap-10 justify-center px-6 md:px-60">
+      <div className="grid lg:grid-cols-2 w-full gap-10 justify-center px-6 md:px-60">
         {projetos.map((projeto : Projeto) => (
           <motion.div 
             className="bg-zinc-50 rounded-xl shadow-md hover:shadow-2xl cursor-pointer"
@@ -23,7 +24,7 @@ export default function Projetos() {
             
           >
             <div>
-              <img src={projeto.image} alt={projeto.name} className="w-full h-60 object-cover rounded-t-xl"/>
+              <ImageCarousel images={projeto.images} />
             </div>
             <div className="flex flex-col space-y-3 p-3 md:p-6">
               <p className="text-zinc-800 text-2xl">{projeto.name}</p>

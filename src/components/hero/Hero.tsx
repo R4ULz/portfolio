@@ -96,6 +96,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.75, duration: 0.5, ease: "easeOut" }}
+        whileInView={{opacity: 1}}
       >
         <motion.div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:opacity-100 transition-opacity duration-500"
           style={{
