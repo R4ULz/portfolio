@@ -1,6 +1,5 @@
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { Fullscreen } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function ParticulasBackground() {
