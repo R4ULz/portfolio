@@ -67,7 +67,7 @@ export default function Footer() {
                                 </div>
                                 <div>
                                     <p className="text-sm text-slate-400">Telefone</p>
-                                    <a href="tel:+5511999999999" className="hover:text-blue-400 transition-colors">+55 11 98935-5294</a>
+                                    <p className="hover:text-blue-400 transition-colors">+55 11 98935-5294</p>
                                 </div>
                             </motion.div>
                             <motion.div className="flex text-zinc-50 gap-3 w-50"
@@ -96,9 +96,6 @@ export default function Footer() {
                             </a>
                             <a href="https://www.linkedin.com/in/raularaujo45/" target="_blank" rel="noopener noreferrer">
                                 <button className="text-zinc-400 hover:text-zinc-50 cursor-pointer size-10 rounded-full bg-slate-800 hover:bg-blue-600 flex items-center justify-center"><Linkedin /></button>
-                            </a>
-                            <a href="mailto:raul.zc45@gmail.com" target="_blank" rel="noopener noreferrer">
-                                <button className="text-zinc-400 hover:text-zinc-50 cursor-pointer size-10 rounded-full bg-slate-800 hover:bg-blue-600 flex items-center justify-center"><Mail /></button>
                             </a>
                         </motion.div>
                     </motion.div>

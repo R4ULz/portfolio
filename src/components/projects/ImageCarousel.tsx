@@ -1,14 +1,25 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function ImageCarousel({ images }: { images: string[] }) {
     const [index, setIndex] = useState(0)
+    const [isPaused, setIsPaused] = useState(false);
 
-    const next = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.stopPropagation()
-        setIndex((prev) => (prev + 1) % images.length)
-    }
+    useEffect(() => {
+        if (isPaused || images.length <= 1) return;
+
+        const interval = setInterval(() => {
+            setIndex((prev) => (prev + 1) % images.length);
+        }, 5000);
+
+        return () => clearInterval(interval);  
+    }, [isPaused, images.length]);
+
+    const next = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setIndex((prev) => (prev + 1) % images.length);
+    };
 
     const prev = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation()
@@ -16,14 +27,14 @@ export function ImageCarousel({ images }: { images: string[] }) {
     }
 
     return (
-        <div className="relative w-full h-60 overflow-hidden rounded-t-xl group/carousel">
+        <div className="relative w-full h-60 overflow-hidden rounded-t-xl group/carousel" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
             <AnimatePresence initial={false} mode="wait">
                 <motion.img key={index}
                     src={images[index]}
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -50 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.4}}
                     className="absolute inset-0 w-full h-full object-cover"
                 />
             </AnimatePresence>

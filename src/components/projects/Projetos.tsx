@@ -41,12 +41,14 @@ export default function Projetos() {
                 ))}
               </ul>
               <div className="flex gap-3">
-              <a href={projeto.demoUrl} target="_blank" rel="noopener noreferrer">
+              {projeto.demoUrl && 
+                (<a href={projeto.demoUrl} target="_blank" rel="noopener noreferrer">
                 <motion.button className="flex gap-1 items-center text-sm bg-blue-700 text-white py-1 px-4 rounded-xl hover:bg-blue-800"
                   whileHover={{ scale: 1.08 }}>
                   <ExternalLink />Ver Demo
                 </motion.button>
-              </a>
+                </a>)
+              }
               <a href={projeto.githubUrl} target="_blank" rel="noopener noreferrer">
                 <motion.button className="flex gap-1 items-center text-sm bg-gray-300 text-gray-700 py-1 px-4 rounded-xl hover:bg-gray-400"
                   whileHover={{ scale: 1.08 }}

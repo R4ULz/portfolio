@@ -87,9 +87,6 @@ export default function Hero() {
           <a href="https://www.linkedin.com/in/raularaujo45/" target="_blank" rel="noopener noreferrer">
             <button className="text-zinc-400 hover:text-zinc-50 cursor-pointer"><Linkedin /></button>
           </a>
-          <a href="mailto:raul.zc45@gmail.com" target="_blank" rel="noopener noreferrer">
-            <button className="text-zinc-400 hover:text-zinc-50 cursor-pointer"><Mail /></button>
-          </a>
         </motion.div>
       </div>
       <motion.div className=" relative z-10 w-72 h-96 flex items-center justify-center group"
